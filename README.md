@@ -68,7 +68,8 @@ stack.
 
 ## Milestones
 
-**M1** vertical slice — login, one world, default character, 8 players on an ENet relay ·
-**M2** netcode depth: AOI, LOD tiers, bandwidth budget, 80-player load test ·
-**M3** voice + VR · **M4** untrusted content pipeline · **M5** the SDK ·
-**M6** P2P · **M7** social surface + scale-out
+Serika Social is built in seven milestones. See [`milestones.md`](milestones.md) for full
+details, exit criteria, and dependency graph.
+
+**M1** vertical slice ✅ · **M2** netcode depth · **M3** voice + VR ·
+**M4** untrusted content · **M5** SDK · **M6** P2P · **M7** social + scale

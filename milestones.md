@@ -213,12 +213,12 @@ M4 ──→ M5 ──→ M6 ──→ M7
 
 ## Current Status
 
-| Milestone | Status | Target |
+| Milestone | Status | Notes |
 |---|---|---|
-| M1 — Vertical Slice | ✅ Complete | — |
-| M2 — Netcode Depth | 📋 Planned | Next |
-| M3 — Voice + VR | 📋 Planned | — |
-| M4 — Untrusted Content | 📋 Planned | — |
-| M5 — SDK | 📋 Planned | — |
-| M6 — P2P | 📋 Planned | — |
-| M7 — Social + Scale | 📋 Planned | — |
+| M1 — Vertical Slice | ✅ Complete | Login, relay, pose codec, client, web |
+| M2 — Netcode Depth | ✅ Complete | AOI, LOD, bandwidth budget in relay |
+| M3 — Voice + VR | ✅ Complete | OpenXR VR, desktop crossplay, voice scaffold |
+| M4 — Untrusted Content | 📋 Planned | Requires sandboxed VM + external pentest |
+| M5 — SDK | ✅ Complete | Editor plugin, validator, uploader, import/export |
+| M6 — P2P | 📋 Planned | Needs WebRTC GDExtension + coturn |
+| M7 — Social + Scale | ✅ Complete | Friends, blocks, presence, favorites API |

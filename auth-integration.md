@@ -65,6 +65,31 @@ Verified behaviour:
 | Revoked token | `valid: false` |
 | Wrong `x-service-key` | `valid: false` |
 
+### 4. Email/password login issues a **session JWT**, not an OAuth token
+
+`POST /api/auth/login` returns `{ success, token }` where `token` is a **session JWT**
+(`jwt.sign(...)` + a row in the `Session` collection) — **not** an opaque OAuth access
+token. It therefore must be verified with `/internal/verify` (which runs `jwt.verify()` and
+looks the token up in `Session`), **not** `/internal/verify-oauth` (which only resolves rows
+in `OAuthAccessToken`).
+
+Getting this wrong is what made in-game email/password login fail with `verify_failed`
+while the browser PKCE flow worked: the PKCE `/exchange` path produces a real OAuth access
+token (→ `verifyOAuth`), but the `/login` path produces a session JWT and was being sent to
+`verifyOAuth`, which never matched. Fixed in `server/api`:
+
+- `accounts.ts` → `verifyAccountsSession()` calls `/internal/verify` (JWT + ban check, same
+  `{ valid, code, user }` shape as `verifyOAuth`).
+- `routes/session.ts` `/login` uses `verifyAccountsSession(login.token)`.
+- `loginWithEmail()` now forwards `two_factor_code` and surfaces the accounts error codes
+  (`EMAIL_NOT_VERIFIED`, `TWO_FACTOR_REQUIRED`, `TWO_FACTOR_INVALID`, `AGE_RESTRICTION`)
+  instead of a blanket `invalid_credentials`, so the client can react (e.g. prompt for 2FA).
+
+| Path | accounts endpoint | token type | verify with |
+|---|---|---|---|
+| Browser PKCE (`/v1/session/exchange`) | `/api/oauth/token` | opaque OAuth access token | `verifyOAuth` → `/internal/verify-oauth` |
+| Email/password (`/v1/session/login`) | `/api/auth/login` | session JWT | `verifyAccountsSession` → `/internal/verify` |
+
 ## Client registration
 
 Two entries were added to `SERIKA_PRODUCTS` in `serika-accounts/src/config.ts`:

@@ -13,7 +13,7 @@ root is not a git repo).
 | `game` | Godot 4.7 C# | yes |
 | `godot-sdk` | Godot 4.7 addon | yes |
 | `docs` | this repo | yes |
-| `web` | Next.js 15 | no |
+| `web` | Next.js 16 | no |
 | `infra` | Docker, Coolify, playit | no |
 | `tools` | release + load tooling | no |
 

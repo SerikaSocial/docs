@@ -88,7 +88,7 @@ Open it as a Godot project to use the demo world and develop the addon.
 ## 5. web / infra / tools
 
 These are not part of the open-source set; see their own repos if you have access:
-- [`web`](https://github.com/SerikaSocial/web) — Next.js 15, `bun install && bun dev`.
+- [`web`](https://github.com/SerikaSocial/web) — Next.js 16, `bun install && bun dev`.
 - [`infra`](https://github.com/SerikaSocial/infra) — `dev-up.sh` / `dev-all.sh`,
   Coolify config, migrations.
 - [`tools`](https://github.com/SerikaSocial/tools) — `mint-ticket.ts`,

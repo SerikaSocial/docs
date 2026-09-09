@@ -19,7 +19,7 @@ also has its own `README.md` and an `AGENTS.md` with operational detail.
 | [`server`](https://github.com/SerikaSocial/server) | REST API, gateway, allocator, Rust relay | Bun + Rust |
 | [`game`](https://github.com/SerikaSocial/game) | The client | Godot 4.7 C# |
 | [`godot-sdk`](https://github.com/SerikaSocial/godot-sdk) | Creator tooling | Godot 4.7 C# |
-| [`web`](https://github.com/SerikaSocial/web) | Profiles, browse, creator dashboard, moderation | Next.js 15 |
+| [`web`](https://github.com/SerikaSocial/web) | Profiles, browse, creator dashboard, moderation | Next.js 16 |
 | [`infra`](https://github.com/SerikaSocial/infra) | Coolify config, migrations, CDN | — |
 | [`tools`](https://github.com/SerikaSocial/tools) | Bot load harness, codec fuzzer, soak tests | — |
 | [`docs`](https://github.com/SerikaSocial/docs) | This repo | — |
